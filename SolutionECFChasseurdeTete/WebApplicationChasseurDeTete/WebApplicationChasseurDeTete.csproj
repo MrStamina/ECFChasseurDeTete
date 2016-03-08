@@ -197,6 +197,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Compte\Login.aspx" />
+    <Content Include="Compte\EspaceEntreprise.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\We-want-you-image.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -314,6 +315,13 @@
     </Compile>
     <Compile Include="Compte\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\EspaceEntreprise.aspx.cs">
+      <DependentUpon>EspaceEntreprise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compte\EspaceEntreprise.aspx.designer.cs">
+      <DependentUpon>EspaceEntreprise.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

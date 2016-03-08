@@ -5,6 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div>
     <p>Entrer adresse mail
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
     <asp:TextBox ID="TextBoxMail" TextMode="Email" runat="server"></asp:TextBox>
         </p>
     <p>Entrer le mot de passe

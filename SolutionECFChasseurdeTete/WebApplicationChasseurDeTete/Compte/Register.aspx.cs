@@ -123,27 +123,10 @@ namespace WebApplicationChasseurDeTete.Account
                 }
                 catch (Exception ex)
                 {
-                    Response.Write("Le compte a été crée" + ex);
+                    Response.Write("Le compte n'a pas été crée" + ex);
                 }
             }
-            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = TextBoxIdentification.Text, Email = TextBoxIdentification.Text };
-            IdentityResult result = manager.Create(user, TextBoxMdp.Text);
-            if (result.Succeeded)
-            {
-                // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>.");
-
-                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else
-            {
-                ErrorMessage.Text = result.Errors.FirstOrDefault();
-            }
+            
         }
             
     }

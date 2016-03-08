@@ -11,7 +11,7 @@
         <hr />
         <asp:Panel ID="PanelCreation" CssClass="Panel" GroupingText="Informations générales" runat ="server">
         <p>
-        <asp:Label CssClass="Label" ID="LabelNom" runat="server" Text="Nom"></asp:Label>
+        <asp:Label CssClass="Label" ID="LabelNom" runat="server" Text="Nom de l'entreprise"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxNom" runat="server" MaxLength="50"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorNom" runat="server" ControlToValidate="TextBoxNom" ErrorMessage="Veuillez indiquer le nom de l'entreprise" ForeColor="Red" Text="*"></asp:RequiredFieldValidator>
         </p>

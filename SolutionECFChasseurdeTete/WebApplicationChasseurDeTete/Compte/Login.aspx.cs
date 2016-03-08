@@ -8,6 +8,7 @@ using ClassChasseurDT.Dao;
 using ClassChasseurDT.Exceptions;
 using ClassChasseurDT.Metier;
 using CryptLibrary;
+using System.Web.Security;
 
 namespace WebApplicationChasseurDeTete
 {
@@ -25,15 +26,24 @@ namespace WebApplicationChasseurDeTete
 
             log.UserIdent = TextBoxMail.Text;
             log.UserPwd = TextBoxMdp.Text;
-            
-            int id = DaoEntreprise.GetLoginEntreprisebyId(log);
-            if(id != 0)
-            {
 
-                Session["new"] = TextBoxMail.Text;
+            int id = DaoEntreprise.GetLoginEntreprisebyId(log);
+            if (id != 0)
+            {
+                Entreprise ent = new Entreprise();
+                ent = DaoEntreprise.GetEntrepriseById(id);
+                Session["Login"] = ent.RaisonSociale;
                 Response.BufferOutput = true;
-                Response.Redirect("", false);
+                //FormsAuthentication.RedirectFromLoginPage(ent.RaisonSociale, true);
+                Response.Redirect("EspaceEntreprise.aspx", false);
             }
+            else
+                Response.Write("L'utilisateur n'existe pas");
+          
+            //if (Membership.ValidateUser(TextBoxMail.Text, TextBoxMdp.Text))
+            //    FormsAuthentication.RedirectFromLoginPage(TextBoxMail.Text, true);
+            //else
+            //    Label1.Text = "Login failed. Please check your user name and password and try again.";
         }
     }
 }

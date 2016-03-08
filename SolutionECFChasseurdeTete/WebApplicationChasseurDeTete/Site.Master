@@ -60,13 +60,13 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Register">Espace Candidat</a></li>
                                 <li><a runat="server" href="~/Account/Register">Espace Entreprise</a></li>
-                                <li><a runat="server" href="~/Account/Register">S'inscrire</a></li>
-                                <li><a runat="server" href="~/Account/Login">Se connecter</a></li>
+                                <li><a runat="server" href="~/Compte/Register">S'inscrire</a></li>
+                                <li><a runat="server" href="~/Compte/Login.aspx">Se connecter</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" href="~/Account/EspaceEntreprise" title="Manage your account">Bienvenue,<%Response.Write(Session["Login"]);%> !</a></li>
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Se déconnecter" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
