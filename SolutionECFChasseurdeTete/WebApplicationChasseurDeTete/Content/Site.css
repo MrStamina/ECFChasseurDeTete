@@ -39,14 +39,15 @@ input[type="select"] {
 .Panel
 {
     font-weight : bold;
-  
+    width : 600px;
+    margin-left : 250px;
     padding : 10px;
 }
 .Label
 {
     padding-left : 50px;
     font-weight : bold;
-    width : 170px;
+    width : 250px;
     margin-right: 0.5em;
     margin-left: 10px;
     display : inline-block;
@@ -55,4 +56,11 @@ input[type="select"] {
 {
     display : inline-block;   
     border-radius : 5px;
+}
+.Bouton
+{
+    text-align : center;
+    padding-top : 20px;
+    padding-bottom : 10px;
+   
 }

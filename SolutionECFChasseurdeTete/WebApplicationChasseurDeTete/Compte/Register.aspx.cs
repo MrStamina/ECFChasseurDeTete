@@ -37,32 +37,32 @@ namespace WebApplicationChasseurDeTete.Account
                 }
                 catch (Exception ex)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Impossible de se connecter');</script>" + ex);
+                    Response.Write("Impossible de se connecter" + ex);
                 }
             }
         }
 
-        //protected void CreateUser_Click(object sender, EventArgs e)
-        //{
-        //    var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-        //    var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-        //    var user = new ApplicationUser() { UserName = TextBoxIdentification.Text, Email = TextBoxIdentification.Text };
-        //    IdentityResult result = manager.Create(user, TextBoxMdp.Text);
-        //    if (result.Succeeded)
-        //    {
-        //        // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
-        //        //string code = manager.GenerateEmailConfirmationToken(user.Id);
-        //        //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-        //        //manager.SendEmail(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>.");
+        protected void CreateUser_Click(object sender, EventArgs e)
+        {
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+            var user = new ApplicationUser() { UserName = TextBoxIdentification.Text, Email = TextBoxIdentification.Text };
+            IdentityResult result = manager.Create(user, TextBoxMdp.Text);
+            if (result.Succeeded)
+            {
+                // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
+                //string code = manager.GenerateEmailConfirmationToken(user.Id);
+                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                //manager.SendEmail(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>.");
 
-        //        signInManager.SignIn( user, isPersistent: false, rememberBrowser: false);
-        //        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-        //    }
-        //    else 
-        //    {
-        //        ErrorMessage.Text = result.Errors.FirstOrDefault();
-        //    }
-        //}
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            }
+            else
+            {
+                ErrorMessage.Text = result.Errors.FirstOrDefault();
+            }
+        }
 
 
 
@@ -109,15 +109,40 @@ namespace WebApplicationChasseurDeTete.Account
                     polE.IdPole = Convert.ToSByte(DropDownListPole.SelectedIndex);
                 ent.DateCreation = DateTime.Now;
 
+                LoginEntreprise log = new LoginEntreprise();
+                log.UserIdent = TextBoxIdentification.Text;
+                log.UserPwd = TextBoxConfirmation.Text;                
+
                 try
                 {
                     ent.IdEntreprise = DaoEntreprise.AddEntreprise(ent);
-                    ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('L'entreprise a bien été ajouté');</script>");
+                    if (DaoEntreprise.AddLoginEntreprise(log, ent.IdEntreprise) == true)
+                    {
+                        Response.Write("Le compte a été crée");
+                    }
                 }
                 catch (Exception ex)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Impossible d'ajouter l'entreprise');</script>" + ex);
+                    Response.Write("Le compte a été crée" + ex);
                 }
+            }
+            var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
+            var user = new ApplicationUser() { UserName = TextBoxIdentification.Text, Email = TextBoxIdentification.Text };
+            IdentityResult result = manager.Create(user, TextBoxMdp.Text);
+            if (result.Succeeded)
+            {
+                // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
+                //string code = manager.GenerateEmailConfirmationToken(user.Id);
+                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
+                //manager.SendEmail(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>.");
+
+                signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+            }
+            else
+            {
+                ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
         }
             

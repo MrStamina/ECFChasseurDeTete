@@ -3,3 +3,10 @@ C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassC
 C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\bin\Debug\ClassChasseurDT.pdb
 C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\obj\Debug\ClassChasseurDT.dll
 C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\obj\Debug\ClassChasseurDT.pdb
+C:\Users\Cdi07\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\obj\Debug\ClassChasseurDT.csprojResolveAssemblyReference.cache
+C:\Users\Cdi07\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\obj\Debug\ClassChasseurDT.dll
+C:\Users\Cdi07\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\obj\Debug\ClassChasseurDT.pdb
+C:\Users\Cdi07\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\bin\Debug\ClassChasseurDT.dll
+C:\Users\Cdi07\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\bin\Debug\ClassChasseurDT.pdb
+C:\Users\Cdi07\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\bin\Debug\CryptLibrary.dll
+C:\Users\Cdi07\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\ClassChasseurDT\bin\Debug\CryptLibrary.pdb

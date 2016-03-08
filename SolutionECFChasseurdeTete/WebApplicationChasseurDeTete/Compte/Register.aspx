@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="S'inscrire" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApplicationChasseurDeTete.Account.Register" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %>.</h2>
+    
     <p class="text-danger">
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
 
-    <div class="form-horizontal">
-        <h4>Créer un nouveau compte entreprise</h4>
+    <%--<div class="form-horizontal">--%>
+        <h4 class="text-center" style="font-size: x-large">Créer un nouveau compte entreprise</h4>
         <hr />
         <asp:Panel ID="PanelCreation" CssClass="Panel" GroupingText="Informations générales" runat ="server">
         <p>
@@ -66,7 +66,7 @@
             <asp:Label CssClass="Label" ID="LabelPole" runat="server" Text="Votre secteur géographique"></asp:Label>
             <asp:DropDownList  CssClass="TextBox" ID="DropDownListPole" runat="server" AppendDataBoundItems="True" AutoPostBack="True"></asp:DropDownList>
         </p>
-        <asp:Panel  CssClass="Panel" ID="PanelIdentification" runat="server" GroupingText="Informations de connexion">
+        <asp:Panel   ID="PanelIdentification" runat="server" GroupingText="Informations de connexion">
             <p>
             <asp:Label CssClass="Label" ID="LabelIdentification" runat="server" Text="Identification de Connexion"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxIdentification" TextMode="Email" runat="server"></asp:TextBox>
@@ -83,12 +83,15 @@
                  <asp:RequiredFieldValidator ID="RequiredFieldValidatorConfirmation" ForeColor="Red" runat="server" ControlToValidate="TextBoxConfirmation" Text="*" ErrorMessage="Veuillez renseigner à nouveau le mot de passe"></asp:RequiredFieldValidator>                
         </p>
         </asp:Panel>
-
-         <asp:Button ID="ButtonValider" runat="server" OnClick="ButtonValider_Click" Text="Valider" CssClass="btn btn-default" />
-         <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"  ShowMessageBox="True" />
-  
+            <div class ="Bouton">
+         <asp:Button ID="ButtonValider" runat="server" OnClick="ButtonValider_Click" Text="Valider" CssClass="btn btn-primary btn-lg" />
+                <asp:Button ID="ButtonRetour" runat="server" Text="Retour" PostBackUrl="~/Accueil.aspx"  CssClass="btn btn-primary btn-lg" />
+                        
+           
+  </div>
+             <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"  ShowMessageBox="False" DisplayMode="BulletList" HeaderText="Récapitulatif des erreurs : " />
     </asp:Panel>
-        </div>
-            
+<%--        </div>
+            --%>
   
 </asp:Content>
