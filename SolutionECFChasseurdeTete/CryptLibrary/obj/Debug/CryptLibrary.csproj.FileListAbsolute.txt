@@ -1,0 +1,4 @@
+C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\CryptLibrary\bin\Debug\CryptLibrary.dll
+C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\CryptLibrary\bin\Debug\CryptLibrary.pdb
+C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\CryptLibrary\obj\Debug\CryptLibrary.dll
+C:\Users\Lucas\Desktop\GitHub\ECFChasseurDeTete\SolutionECFChasseurdeTete\CryptLibrary\obj\Debug\CryptLibrary.pdb
