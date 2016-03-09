@@ -7,14 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace WebApplicationChasseurDeTete
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm7 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Response.Write("Bienvenue"+ Session["Login"]);
-            LabelBienvenu.Text = (string)Session["Login"];
-        }
 
-        
+        }
     }
 }

@@ -11,7 +11,8 @@ using WebApplicationChasseurDeTete.Models;
 
 namespace WebApplicationChasseurDeTete
 {
-    public partial class Startup {
+    public partial class Startup
+    {
 
         // Pour plus d'informations sur le regroupement (Bundling), consultez http://go.microsoft.com/fwlink/?LinkId=301883
         public void ConfigureAuth(IAppBuilder app)

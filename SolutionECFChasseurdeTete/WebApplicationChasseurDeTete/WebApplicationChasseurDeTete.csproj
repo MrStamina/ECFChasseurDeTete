@@ -198,7 +198,13 @@
     </Content>
     <Content Include="Compte\Login.aspx" />
     <Content Include="Compte\EspaceEntreprise.aspx" />
+    <Content Include="Compte\SuiviMission.aspx" />
+    <Content Include="Compte\ModifInfos.aspx" />
+    <Content Include="Compte\CreerMission.aspx" />
+    <Content Include="CompteCandidat\RegisterCandidat.aspx" />
+    <Content Include="CompteCandidat\EspaceCandidat.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Images\en_construction.jpg" />
     <Content Include="Images\We-want-you-image.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -322,6 +328,41 @@
     </Compile>
     <Compile Include="Compte\EspaceEntreprise.aspx.designer.cs">
       <DependentUpon>EspaceEntreprise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\SuiviMission.aspx.cs">
+      <DependentUpon>SuiviMission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compte\SuiviMission.aspx.designer.cs">
+      <DependentUpon>SuiviMission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\ModifInfos.aspx.cs">
+      <DependentUpon>ModifInfos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compte\ModifInfos.aspx.designer.cs">
+      <DependentUpon>ModifInfos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\CreerMission.aspx.cs">
+      <DependentUpon>CreerMission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compte\CreerMission.aspx.designer.cs">
+      <DependentUpon>CreerMission.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompteCandidat\RegisterCandidat.aspx.cs">
+      <DependentUpon>RegisterCandidat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompteCandidat\RegisterCandidat.aspx.designer.cs">
+      <DependentUpon>RegisterCandidat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompteCandidat\EspaceCandidat.aspx.cs">
+      <DependentUpon>EspaceCandidat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompteCandidat\EspaceCandidat.aspx.designer.cs">
+      <DependentUpon>EspaceCandidat.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -13,13 +13,13 @@ namespace WebApplicationChasseurDeTete {
     public partial class WebForm1 {
         
         /// <summary>
-        /// Contrôle Label1.
+        /// Contrôle LabelAdresseMail.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LabelAdresseMail;
         
         /// <summary>
         /// Contrôle TextBoxMail.
@@ -29,6 +29,15 @@ namespace WebApplicationChasseurDeTete {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxMail;
+        
+        /// <summary>
+        /// Contrôle LabelMdp.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMdp;
         
         /// <summary>
         /// Contrôle TextBoxMdp.
@@ -47,5 +56,14 @@ namespace WebApplicationChasseurDeTete {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonConnect;
+        
+        /// <summary>
+        /// Contrôle LabelErreur.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelErreur;
     }
 }

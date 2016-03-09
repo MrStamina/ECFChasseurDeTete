@@ -1,32 +1,46 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EspaceEntreprise.aspx.cs" Inherits="WebApplicationChasseurDeTete.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="Bienvenu">
+        <p>
+            Bienvenue sur votre Espace Entreprise
+        </p>
+        <asp:Label ID="LabelBienvenu" runat="server" Text=""></asp:Label>
+    </div>
+ <div class ="Main">
+    
     <div class="Menu">
         
 <ul id="menu-accordeon">
-   <li><a href="#">Lien menu 1</a>
+   <li><a href="#">Menu</a>
+      <%--<ul>
+         <li><a href="#">Mon identification</a></li>
+         <li><a href="#">Changer mon mot de passe</a></li>
+         <li><a href="#">Mes missions</a></li>
+         <li><a href="#">Consulter les Cv</a></li>
+      </ul>--%>
+   </li>
+    <li><a href="#">Gestion du compte</a>
       <ul>
-         <li><a href="#">lien sous menu 1</a></li>
-         <li><a href="#">lien sous menu 1</a></li>
-         <li><a href="#">lien sous menu 1</a></li>
-         <li><a href="#">lien sous menu 1</a></li>
+         <li><a href="#">Mon identification</a></li>
+         <li><a href="#">Changer de mot de passe</a></li>
+         <li><a href="ModifInfos.aspx">Modifier les informations</a></li>
+         <%--<li><a href="#">Lien sous menu 2</a></li>--%>
       </ul>
    </li>
-    <li><a href="#">Lien menu 2</a>
+   <li><a href="#">Gérer mes missions</a>
       <ul>
-         <li><a href="#">Lien sous menu 2</a></li>
-         <li><a href="#">Lien sous menu 2</a></li>
-         <li><a href="#">Lien sous menu 2</a></li>
-         <li><a href="#">Lien sous menu 2</a></li>
+         <li>
+             <a href="SuiviMission.aspx">Suivi des missions</a>
+             </li>
+         <li><a href="#">Consulter les Cv</a></li>
+         <li><a href="#">Contacter mon consultant</a></li>
+         <li><a href="#">Proposer une mission</a></li>
       </ul>
    </li>
-   <li><a href="#">Lien menu 3</a>
-      <ul>
-         <li><a href="#">Lien sous menu 3</a></li>
-         <li><a href="#">Lien sous menu 3</a></li>
-         <li><a href="#">Lien sous menu 3</a></li>
-         <li><a href="#">Lien sous menu 3</a></li>
-      </ul>
-   </li>
+    <li><a href="#">Retour accueil</a>
+        </li>
 </ul>
     </div>
+     
+ </div>
 </asp:Content>

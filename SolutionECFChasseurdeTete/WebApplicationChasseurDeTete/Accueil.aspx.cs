@@ -13,5 +13,15 @@ namespace WebApplicationChasseurDeTete
         {
 
         }
+
+        protected void LinkButtonOffre_Click(object sender, EventArgs e)
+        {
+            if (Session["Login"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            else
+                Response.Redirect("~/CreerMission.aspx");
+        }
     }
 }

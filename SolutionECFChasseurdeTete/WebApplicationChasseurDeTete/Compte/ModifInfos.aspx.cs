@@ -1,21 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using System.Web.UI.WebControls;
-using System.Collections.Generic;
-using Owin;
-
 using ClassChasseurDT.Dao;
 using ClassChasseurDT.Exceptions;
 using ClassChasseurDT.Metier;
 
-namespace WebApplicationChasseurDeTete.Account
+
+namespace WebApplicationChasseurDeTete
 {
-    public partial class Register : Page
+    public partial class WebForm4 : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -39,18 +37,61 @@ namespace WebApplicationChasseurDeTete.Account
                 {
                     Response.Write("Impossible de se connecter" + ex);
                 }
+                int idEnt = (int)Session["IdEnt"];
+                Entreprise ent = new Entreprise();
+                ent = DaoEntreprise.GetEntrepriseById(idEnt);
+                TextBoxNom.Text = ent.RaisonSociale;
+                TextBoxAdresse.Text = ent.Adresse1Ent;
+                if (ent.Adresse2Ent == null)
+                    TextBoxComplement.Text = string.Empty;
+                else
+                    TextBoxComplement.Text = ent.Adresse2Ent;
+                TextBoxCodePostal.Text = ent.CpEnt;
+                TextBoxVille.Text = ent.VilleEnt;
+
+                if (ent.Cliente == false)
+                {
+                    DropDownListClient.SelectedIndex = 2;
+                }
+                else
+                    DropDownListClient.SelectedIndex = 1;
+                if (ent.Contact == null)
+                    TextBoxContact.Text = string.Empty;
+                else
+                    TextBoxContact.Text = ent.Contact;
+                if (ent.TelContact == null)
+                    TextBoxTel.Text = string.Empty;
+                else
+                    TextBoxTel.Text = ent.TelContact;
+                if (ent.MailContact == null)
+                    TextBoxMail.Text = string.Empty;
+                else
+                    TextBoxMail.Text = ent.MailContact;
+                Activite act = new Activite();
+                act = ent.SecteurActivite;
+                if (act == null)
+                    DropDownListSecteur.SelectedIndex = 0;
+                else
+                    DropDownListSecteur.SelectedIndex = Convert.ToInt32(act.IdActivite);
+                PoleEmbauche pol = new PoleEmbauche();
+                pol = ent.PoleRattachement;
+                if (pol == null)
+                    DropDownListPole.SelectedIndex = 0;
+                else
+                    DropDownListPole.SelectedIndex = Convert.ToInt32(pol.IdPole);
             }
+           
+
         }
-
-       
-
-
 
         protected void ButtonValider_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
+            if(Page.IsValid)
             {
+                
+                 
                 Entreprise ent = new Entreprise();
+                ent.IdEntreprise = (int)Session["IdEnt"];
                 ent.RaisonSociale = TextBoxNom.Text;
                 ent.Adresse1Ent = TextBoxAdresse.Text;
                 if (TextBoxComplement.Text == string.Empty)
@@ -88,27 +129,23 @@ namespace WebApplicationChasseurDeTete.Account
                 else
                     polE.IdPole = Convert.ToSByte(DropDownListPole.SelectedIndex);
                 ent.DateCreation = DateTime.Now;
-
-                LoginEntreprise log = new LoginEntreprise();
-                log.UserIdent = TextBoxIdentification.Text;
-                log.UserPwd = TextBoxConfirmation.Text;                
-
                 try
                 {
-                    ent.IdEntreprise = DaoEntreprise.AddEntreprise(ent);
-                    if (DaoEntreprise.AddLoginEntreprise(log, ent.IdEntreprise) == true)
+                    if(DaoEntreprise.UpdEntreprise(ent) == true)
                     {
-                        Response.Write("Le compte a été crée");
+                        Response.Write("La modification est effectuée");
                     }
+                    
+                       
                 }
-                catch (Exception ex)
+                catch(Exception ex)
                 {
-                    Response.Write("Le compte n'a pas été crée" + ex);
+                    Response.Write("La modification a echoué" + ex);
                 }
+
+
             }
-            Response.Redirect("Login.aspx");
-            
+            Response.Redirect("EspaceEntreprise.aspx");
         }
-            
     }
 }

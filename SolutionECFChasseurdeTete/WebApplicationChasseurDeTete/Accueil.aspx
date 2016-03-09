@@ -7,26 +7,31 @@
 
     <div class="jumbotron">
         <h1>Vous êtes un candidat</h1>
+        <p >
+        Cadre dynamique , vous avez envie de booster votre carrière ? <br />
+             Inscrivez-vous et laissez nos consultants vous trouver le job idéal !<br />
+        Accédez aux offres d'emploi et répondez aux sollicitations des entreprises.<br />
+         Faites-vous accompagner par des consultants experts !
+        </p>
+        <p>
+            <a href="CompteCandidat/RegisterCandidat.aspx" class="btn btn-primary btn-lg">Créer un compte &raquo;</a>
 
-        <p class="lead">Cadre dynamique , vous avez envie de booster votre carrière, faites confiance à nos consultants.</p>
-        <p>Accédez aux offres d'emploi et répondez aux sollicitations des entreprises.<br />
-         Faites-vous accompagner par des consultants experts !</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Créer un compte &raquo;</a></p>
+        </p>
     </div>
 
     <div class="jumbotron">      
             <h1>Vous êtes une entreprise</h1>
-            <p>
+            <p >
               De nombreux candidats consultent les offres d'emplois chaque jour !  <br />     
            
-                Publiez vos offres d'emplois et bénéficiez de l'expertise de nos consultants pour vos recrutements    <br />      
+                Publiez vos offres d'emplois et bénéficiez de l'expertise de nos consultants pour vos recrutements.    <br />      
           
-                Trouvez rapidement les meilleurs profils du marché
+                Trouvez rapidement les meilleurs profils du marché !
             </p>
             <p>
-                <a class="btn btn-primary btn-lg" href="Account/Register.aspx">Créer un compte &raquo;</a>            
+                <a class="btn btn-primary btn-lg" href="Compte/Register.aspx">Créer un compte &raquo;</a>           
           
-                <a class="btn btn-primary btn-lg" href="http://go.microsoft.com/fwlink/?LinkId=301948">Publier une offre &raquo;</a>
+                <asp:LinkButton CssClass="btn btn-primary btn-lg" ID="LinkButtonOffre" OnClick="LinkButtonOffre_Click" runat="server">Publier une offre&raquo;</asp:LinkButton>  
             </p>
         </div>
         

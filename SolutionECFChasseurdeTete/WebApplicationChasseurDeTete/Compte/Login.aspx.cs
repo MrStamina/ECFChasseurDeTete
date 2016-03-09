@@ -14,7 +14,7 @@ namespace WebApplicationChasseurDeTete
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        string name;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -33,12 +33,13 @@ namespace WebApplicationChasseurDeTete
                 Entreprise ent = new Entreprise();
                 ent = DaoEntreprise.GetEntrepriseById(id);
                 Session["Login"] = ent.RaisonSociale;
+                Session["IdEnt"] = ent.IdEntreprise;
                 Response.BufferOutput = true;
                 //FormsAuthentication.RedirectFromLoginPage(ent.RaisonSociale, true);
                 Response.Redirect("EspaceEntreprise.aspx", false);
             }
             else
-                Response.Write("L'utilisateur n'existe pas");
+                LabelErreur.Text = "L'adresse mail et/ou le mot de passe sont incorrects";
           
             //if (Membership.ValidateUser(TextBoxMail.Text, TextBoxMdp.Text))
             //    FormsAuthentication.RedirectFromLoginPage(TextBoxMail.Text, true);
