@@ -18,6 +18,7 @@ namespace ClassChasseurDT.Metier
         public DateTime DateCreation { get; set; }
         public Activite SecteurActivite { get; set; }
         public PoleEmbauche PoleRattachement { get; set; }
+        //public int NbreEmploye { get; set; }
 
         public List<Mission> Missions { get; set; }
 

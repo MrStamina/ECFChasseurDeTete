@@ -46,7 +46,7 @@ input[type="select"] {
 .Panel
 {
     font-weight : bold;
-    width : 600px;
+    width : 800px;
     margin-left : 250px;
     padding : 10px;
 }
@@ -153,12 +153,12 @@ input[type="select"] {
 }
 .Affichage
 {
-    margin-top : 20px;
-    margin-left : 330px;
-    border : 3px solid #333333;
+    margin-top : 100px;
+
+   
     height: auto;
     padding:1px 0;
-    height : 600px;
+   margin-left : 100px
 
     
     
@@ -178,4 +178,32 @@ input[type="select"] {
     width:320px;
     padding:1px 0;
    
+}
+.Choix
+{
+    width : 350px;
+    margin-left : 37%;
+    padding : 10px;
+ 
+}
+.BoutonChoix
+{
+     margin-top: 10px;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  /*white-space: nowrap;*/
+  /*vertical-align: middle;*/
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+     
+          user-select: none;
+  
 }

@@ -22,6 +22,24 @@ namespace WebApplicationChasseurDeTete {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
+        /// Contrôle LinkButtonEspaceCand.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonEspaceCand;
+        
+        /// <summary>
+        /// Contrôle LinkButtonEspaceEnt.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButtonEspaceEnt;
+        
+        /// <summary>
         /// Contrôle LinkButtonDeco.
         /// </summary>
         /// <remarks>

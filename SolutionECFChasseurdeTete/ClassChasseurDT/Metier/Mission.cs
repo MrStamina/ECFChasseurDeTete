@@ -18,10 +18,31 @@ namespace ClassChasseurDT.Metier
         public MotifFin Motif { get; set; }
         public List<Contact> Contacts { get; set; }
 
+        //public string LibelleQualif { get { return QualificationDemandee.LibelleQualification; } }
+        //public string LibelleNiveau { get { return NiveauDemande.Libelle; } }
+        //public string NomConsultant { get { return Consult.NomConsultant; } }
 
 
 
+        public Mission()
+        {
 
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override bool Equals(Object obj)
+        {
+            return obj is Mission && ((Mission)obj).IdMission.Equals(IdMission);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
     }
 }

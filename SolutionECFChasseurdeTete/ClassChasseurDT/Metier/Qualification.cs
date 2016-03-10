@@ -10,5 +10,26 @@ namespace ClassChasseurDT.Metier
 
         public List<PosteRecherche> Postes { get; set; }
 
+        public Qualification()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override bool Equals(Object obj)
+        {
+            return obj is Qualification && ((Qualification)obj).IdQualification.Equals(this.IdQualification);
+        }
+
     }
+    
 }

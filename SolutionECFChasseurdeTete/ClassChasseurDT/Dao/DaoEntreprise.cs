@@ -212,7 +212,7 @@ namespace ClassChasseurDT.Dao
             }
         }
 
-        public static int  GetLoginEntreprisebyId(LoginEntreprise log)
+        public static bool  GetLoginEntreprisebyId(LoginEntreprise log, out int idEntr)
         {
            
             using (SqlConnection sqlConnect = Connection.GetConnection())
@@ -237,8 +237,9 @@ namespace ClassChasseurDT.Dao
                             id =  Convert.ToInt32(sqlRdr.GetInt32(0));
                            
                         }
+                        idEntr = id;
                         sqlRdr.Close();
-                        return id;
+                        return true;
                     }
                     catch(SqlException ex)
                     {

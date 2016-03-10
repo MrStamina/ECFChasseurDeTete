@@ -73,8 +73,15 @@ namespace WebApplicationChasseurDeTete
                 if (Session["Login"] != null)
                 {
                     Panel1.Visible = true;
+                    LinkButtonEspaceCand.Visible = false;
                     Panel2.Visible = false;
                 
+                }
+                else if (Session["LoginCand"] != null)
+                {
+                    Panel1.Visible = true;
+                    LinkButtonEspaceEnt.Visible = false;
+
                 }
                 else
                     Panel2.Visible = true;
@@ -90,6 +97,16 @@ namespace WebApplicationChasseurDeTete
             Panel2.Visible = true;
             Session.Abandon();
             Response.Redirect("~/Accueil.aspx");
+        }
+
+        protected void LinkButtonEspaceCand_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Compte/EspaceCandidat.aspx");
+        }
+
+        protected void LinkButtonEspaceEnt_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Compte/EspaceEntreprise.aspx");
         }
     }
 

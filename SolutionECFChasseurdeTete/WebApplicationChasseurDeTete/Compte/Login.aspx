@@ -3,7 +3,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h4 class="text-center" style="font-size: x-large">Entrez vos informations de connexion</h4>
+    <h4 class="text-center" style="font-size: x-large">Entrez vos informations de connexion</h4><hr />
     <div class ="AffichageLogin">
     <p>
        <asp:Label CssClass="Label" ID="LabelAdresseMail" runat="server" Text="Entrer votre adresse mail"></asp:Label>

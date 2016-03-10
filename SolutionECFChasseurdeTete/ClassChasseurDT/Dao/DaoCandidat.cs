@@ -236,5 +236,74 @@ namespace ClassChasseurDT.Dao
             }
         }
 
+        public static bool AddLoginCandidat(LoginCandidat log, int idCand)
+        {
+            using (SqlConnection sqlConnect = Connection.GetConnection())
+            {
+                // projet forfait
+                using (SqlCommand sqlCde = new SqlCommand())
+                {
+                    //initialiser la connection de la commande
+                    sqlCde.Connection = sqlConnect;
+                    string strSql = "AddLoginCandidat";
+                    sqlCde.CommandText = strSql;
+                    sqlCde.CommandType = CommandType.StoredProcedure;
+                    sqlCde.Parameters.Add(new SqlParameter("@userIdent", SqlDbType.VarChar, 50)).Value = log.UserIdent;
+                    string hash = CryptLibrary.Cryptage.getMd5Hash(log.UserPwd);
+                    sqlCde.Parameters.Add(new SqlParameter("@userPwd", SqlDbType.VarChar, 30)).Value = hash;
+                    sqlCde.Parameters.Add(new SqlParameter("@idEntreprise", SqlDbType.Int)).Value = idCand;
+                    try
+                    {
+
+                        int n = sqlCde.ExecuteNonQuery();
+                        if (n != 1)
+                            throw new DaoExceptionAfficheMessage("L'opération n'a pas été réalisée");
+                        return true;
+                    }
+                    catch (SqlException se)
+                    {
+                        throw new DaoExceptionFinAppli("Lecture Entreprise impossible \n" + se.Message, se);
+                    }
+                }
+            }
+        }
+
+        public static bool GetLoginCandidatbyId(LoginCandidat log, out int idCand )
+        {
+
+            using (SqlConnection sqlConnect = Connection.GetConnection())
+            {
+                using (SqlCommand sqlCde = new SqlCommand())
+                {
+                    sqlCde.Connection = sqlConnect;
+                    string strsql = "GetLoginCandidatById";
+                    sqlCde.CommandText = strsql;
+                    sqlCde.CommandType = CommandType.StoredProcedure;
+                    sqlCde.Parameters.Add(new SqlParameter("@userIdent", SqlDbType.VarChar, 50)).Value = log.UserIdent;
+                    string hash = CryptLibrary.Cryptage.getMd5Hash(log.UserPwd);
+                    sqlCde.Parameters.Add(new SqlParameter("@userPwd", SqlDbType.VarChar, 30)).Value = hash;
+
+
+                    try
+                    {
+                        SqlDataReader sqlRdr = sqlCde.ExecuteReader();
+                        int id = 0;
+                        if (sqlRdr.Read())
+                        {
+                            id = Convert.ToInt32(sqlRdr.GetInt32(0));
+
+                        }
+                        sqlRdr.Close();
+                        idCand = id;
+                        return true;
+                    }
+                    catch (SqlException ex)
+                    {
+                        throw new DaoExceptionFinAppli("Chargement des Logins impossible, l'application va se fermer: \n" + ex.Message, ex);
+                    }
+                }
+            }
+        }
+
     }
 }

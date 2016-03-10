@@ -43,7 +43,7 @@
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelTel" runat="server" Text="Telephone"></asp:Label>
-            <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" MaxLength="20" TextMode="Number"></asp:TextBox>
             
         </p>
         <p>

@@ -27,24 +27,33 @@ namespace WebApplicationChasseurDeTete
             log.UserIdent = TextBoxMail.Text;
             log.UserPwd = TextBoxMdp.Text;
 
-            int id = DaoEntreprise.GetLoginEntreprisebyId(log);
-            if (id != 0)
+            LoginCandidat logCand = new LoginCandidat();
+            logCand.UserIdent = TextBoxMail.Text;
+            logCand.UserPwd = TextBoxMdp.Text;
+
+            int recupId = 0;
+            if(DaoCandidat.GetLoginCandidatbyId(logCand,out recupId) == true)
+            {
+                Candidat cand = new Candidat();
+                cand = DaoCandidat.GetCandidatById(recupId);
+                Session["LoginCand"] = cand.Nom + " " + cand.Prenom;
+                Session["IdCand"] = cand.IdCandidat;
+                Response.BufferOutput = true;
+                Response.Redirect("EspaceCandidat.aspx", false);
+            }
+            else if (DaoEntreprise.GetLoginEntreprisebyId(log, out recupId) == true)          
             {
                 Entreprise ent = new Entreprise();
-                ent = DaoEntreprise.GetEntrepriseById(id);
+                ent = DaoEntreprise.GetEntrepriseById(recupId);
                 Session["Login"] = ent.RaisonSociale;
                 Session["IdEnt"] = ent.IdEntreprise;
-                Response.BufferOutput = true;
-                //FormsAuthentication.RedirectFromLoginPage(ent.RaisonSociale, true);
+                Response.BufferOutput = true;                
                 Response.Redirect("EspaceEntreprise.aspx", false);
             }
             else
                 LabelErreur.Text = "L'adresse mail et/ou le mot de passe sont incorrects";
           
-            //if (Membership.ValidateUser(TextBoxMail.Text, TextBoxMdp.Text))
-            //    FormsAuthentication.RedirectFromLoginPage(TextBoxMail.Text, true);
-            //else
-            //    Label1.Text = "Login failed. Please check your user name and password and try again.";
+            
         }
     }
 }

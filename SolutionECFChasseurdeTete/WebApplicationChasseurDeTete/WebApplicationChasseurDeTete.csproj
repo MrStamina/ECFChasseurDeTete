@@ -201,7 +201,6 @@
     <Content Include="Compte\SuiviMission.aspx" />
     <Content Include="Compte\ModifInfos.aspx" />
     <Content Include="Compte\CreerMission.aspx" />
-    <Content Include="CompteCandidat\RegisterCandidat.aspx" />
     <Content Include="CompteCandidat\EspaceCandidat.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\en_construction.jpg" />
@@ -349,13 +348,6 @@
     </Compile>
     <Compile Include="Compte\CreerMission.aspx.designer.cs">
       <DependentUpon>CreerMission.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CompteCandidat\RegisterCandidat.aspx.cs">
-      <DependentUpon>RegisterCandidat.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CompteCandidat\RegisterCandidat.aspx.designer.cs">
-      <DependentUpon>RegisterCandidat.aspx</DependentUpon>
     </Compile>
     <Compile Include="CompteCandidat\EspaceCandidat.aspx.cs">
       <DependentUpon>EspaceCandidat.aspx</DependentUpon>

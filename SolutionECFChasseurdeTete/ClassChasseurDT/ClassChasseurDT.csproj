@@ -73,14 +73,15 @@
     <Compile Include="Metier\SituationFamiliale.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Procédures stockées\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CryptLibrary\CryptLibrary.csproj">
       <Project>{3f359ae3-dccc-4ba2-ad4a-cd475e2b6588}</Project>
       <Name>CryptLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Procédures stockées\GetAllMissionsbyEnt.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

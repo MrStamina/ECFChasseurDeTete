@@ -18,10 +18,10 @@ namespace WebApplicationChasseurDeTete
         {
             if (Session["Login"] == null)
             {
-                Response.Redirect("~/Login.aspx");
+                Response.Redirect("~/Compte/Login.aspx");
             }
             else
-                Response.Redirect("~/CreerMission.aspx");
+                Response.Redirect("~/Compte/CreerMission.aspx");
         }
     }
 }

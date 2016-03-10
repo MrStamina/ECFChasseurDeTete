@@ -18,22 +18,38 @@ namespace WebApplicationChasseurDeTete.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!Page.IsPostBack)
             {
+                //RangeValidator1.MinimumValue = DateTime.Today.AddYears(-18).ToShortDateString();
+                //RangeValidator1.MaximumValue = DateTime.Today.ToShortDateString();
                 try
                 {
-                    //Bind  dropdown Pole géographique
-                    DropDownListPole.Items.Insert(0, new ListItem("Sélectionner le secteur géographique", "0"));
+                    //Bind  dropdown Pole géographique entreprise
+                    DropDownListPole.Items.Insert(0, new ListItem("Sélectionnez le secteur géographique", "0"));
                     DropDownListPole.DataSource = DaoPoleEmbauche.GetAllPoleEmbauches();
                     DropDownListPole.DataTextField = "LibellePole";
                     DropDownListPole.DataValueField = "IdPole";
                     DropDownListPole.DataBind();
                     //bind dropdown secteur activité
-                    DropDownListSecteur.Items.Insert(0, new ListItem("Sélectionner votre secteur d'activité", "0"));
+                    DropDownListSecteur.Items.Insert(0, new ListItem("Sélectionnez votre secteur d'activité", "0"));
                     DropDownListSecteur.DataSource = DaoSecteurActivite.GetAllActivites();
                     DropDownListSecteur.DataTextField = "LibelleActivite";
                     DropDownListSecteur.DataValueField = "IdActivite";
                     DropDownListSecteur.DataBind();
+                    //Bind drop Pole géographique candidat
+                    DropDownListPoleEmploi.Items.Insert(0, new ListItem("Sélectionnez votre secteur géographique", "0"));
+                    DropDownListPoleEmploi.DataSource = DaoPoleEmbauche.GetAllPoleEmbauches();
+                    DropDownListPoleEmploi.DataTextField = "LibellePole";
+                    DropDownListPoleEmploi.DataValueField = "IdPole";
+                    DropDownListPoleEmploi.DataBind();
+                    // Bin drop Situation 
+                    DropDownListSituFami.Items.Insert(0, new ListItem("Selectionnez votre situation familiale","0"));
+                    DropDownListSituFami.DataSource = DaoSituFam.GetAllSituationFamiliales();
+                    DropDownListSituFami.DataTextField = "LibelleSituF";
+                    DropDownListSituFami.DataValueField = "IdSituF";
+                    DropDownListSituFami.DataBind();
+                   
                 }
                 catch (Exception ex)
                 {
@@ -109,6 +125,69 @@ namespace WebApplicationChasseurDeTete.Account
             Response.Redirect("Login.aspx");
             
         }
-            
+
+       
+
+        protected void ButtonEntreprise_Click(object sender, EventArgs e)
+        {
+            PanelCreation.Visible = true;
+            PanelCreationCandidat.Visible = false;
+        }
+
+        protected void ButtonCandidat_Click(object sender, EventArgs e)
+        {
+            PanelCreation.Visible = false;
+            PanelCreationCandidat.Visible = true;
+        }
+
+        protected void ButtonRetour_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(Request.RawUrl);
+        }
+
+        protected void ButtonValiderCand_Click(object sender, EventArgs e)
+        {
+            if(Page.IsValid)
+            {
+                Candidat cand = new Candidat();
+                cand.Nom = TextBoxNomCandidat.Text;
+                cand.Prenom = TextBoxPrenom.Text;               
+                cand.DateNaissance = Convert.ToDateTime(TextBoxDateDeNaissance.Text);
+                cand.Telephone = TextBoxTelephone.Text;
+                cand.AdresseMail = TextBoxAdresseMailCandidat.Text;
+                if (DropDownListSituPro.SelectedIndex == 1)
+                    cand.SituationProfess = true;
+                else
+                    cand.SituationProfess = false;
+                if (DropDownListMobilite.SelectedIndex == 1)
+                    cand.Mobilite = true;
+                else
+                    cand.Mobilite = false;
+                SituationFamiliale situF = new SituationFamiliale();
+                cand.SituationF = situF;
+                situF.IdSituF = Convert.ToSByte(DropDownListSituFami.SelectedIndex);
+                PoleEmbauche pole = new PoleEmbauche();
+                cand.PoleRattachement = pole;
+                if (DropDownListPoleEmploi.SelectedIndex == 0)
+                    cand.PoleRattachement = null;
+                else                
+                    pole.IdPole = Convert.ToSByte(DropDownListPoleEmploi.SelectedIndex);
+                LoginCandidat log = new LoginCandidat();
+                log.UserIdent = TextBoxMailConnexionCand.Text;
+                log.UserPwd = TextBoxConfirmCand.Text;
+                try
+                {
+                    cand.IdCandidat = DaoCandidat.AddCandidat(cand);
+                    if (DaoCandidat.AddLoginCandidat(log, cand.IdCandidat) == true)
+                        Response.Write("Le compte a été crée");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("Le compte n'a pas été crée" + ex);
+                }
+
+            }
+            Response.Redirect("Login.aspx");
+        }
     }
 }
