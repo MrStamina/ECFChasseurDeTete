@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=15.1.2.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\Mes documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -202,6 +206,8 @@
     <Content Include="Compte\ModifInfos.aspx" />
     <Content Include="Compte\CreerMission.aspx" />
     <Content Include="CompteCandidat\EspaceCandidat.aspx" />
+    <Content Include="CompteCandidat\SuiviExperience.aspx" />
+    <Content Include="CompteCandidat\ModifierCandidat.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\en_construction.jpg" />
     <Content Include="Images\We-want-you-image.png" />
@@ -356,8 +362,23 @@
     <Compile Include="CompteCandidat\EspaceCandidat.aspx.designer.cs">
       <DependentUpon>EspaceCandidat.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CompteCandidat\SuiviExperience.aspx.cs">
+      <DependentUpon>SuiviExperience.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompteCandidat\SuiviExperience.aspx.designer.cs">
+      <DependentUpon>SuiviExperience.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompteCandidat\ModifierCandidat.aspx.cs">
+      <DependentUpon>ModifierCandidat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompteCandidat\ModifierCandidat.aspx.designer.cs">
+      <DependentUpon>ModifierCandidat.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

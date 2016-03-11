@@ -517,6 +517,15 @@ namespace WebApplicationChasseurDeTete.Account {
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
         
         /// <summary>
+        /// Contrôle MaskedEditExtender1.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender1;
+        
+        /// <summary>
         /// Contrôle LabelTelephone.
         /// </summary>
         /// <remarks>

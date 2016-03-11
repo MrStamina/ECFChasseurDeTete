@@ -16,16 +16,15 @@
    </li>
     <li><a href="#">Gestion du compte</a>
       <ul>
-         <li><a href="#">Mon identification</a></li>
-         <li><a href="#">Changer de mot de passe</a></li>
-         <li><a href="#">Modifier mes informations</a></li>     
-         <li><a href="#">Mes Expèriences</a></li>
+         <li><a href="#">Changer mes identifiants</a></li>    
+         <li><a href="ModifierCandidat.aspx">Modifier mes informations</a></li>     
+         <li><a href="SuivExperience.aspx">Mes Expèriences</a></li>
          <li><a href="#">Mes Diplômes</a></li>
          <li><a href="#">Les poste recherchés</a></li>
          
       </ul>
    </li>
-    <li><a href="#">Retour accueil</a>
+    <li><a href="~/Accueil.aspx">Retour accueil</a>
         </li>
 </ul>
     </div>

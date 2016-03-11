@@ -237,9 +237,18 @@ namespace ClassChasseurDT.Dao
                             id =  Convert.ToInt32(sqlRdr.GetInt32(0));
                            
                         }
-                        idEntr = id;
                         sqlRdr.Close();
-                        return true;
+                        if(id != 0)
+                        {
+                            idEntr = id;
+                            return true;
+                        }
+                        else
+                        {
+                            idEntr = 0;
+                            return false;
+                        }
+                        
                     }
                     catch(SqlException ex)
                     {

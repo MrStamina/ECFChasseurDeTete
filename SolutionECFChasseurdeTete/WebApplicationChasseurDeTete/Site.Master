@@ -18,11 +18,9 @@
 </head>
 <body>
     <form runat="server">
-        <%--<asp:ScriptManager runat="server">
-            <Scripts>
-                <%--Pour plus d'informations sur les scripts de regroupement dans ScriptManager, consultez http://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Scripts Framework--%>
-                <%--<asp:ScriptReference Name="MsAjaxBundle" />
+        <asp:ScriptManager runat="server">
+            <Scripts>                
+                <asp:ScriptReference Name="MsAjaxBundle" />
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="respond" />
@@ -35,9 +33,9 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Scripts de site--%>
-           <%-- </Scripts>--%>
-<%--    <%--    </asp:ScriptManager>--%>
+            
+            </Scripts>
+ </asp:ScriptManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -65,7 +63,7 @@
                                 <li>
                                     <asp:LinkButton OnClick="LinkButtonEspaceEnt_Click" ID="LinkButtonEspaceEnt" runat="server">Espace Entreprise</asp:LinkButton>
                                 <li>
-                                    <asp:LinkButton ID="LinkButtonDeco" OnClick="LinkButtonDeco_Click"  runat="server">Se deconnecter</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButtonDeco" OnClick="LinkButtonDeco_Click"  runat="server" OnClientClick="return confirm('Etes-vous sûr(e) de vouloir vous deconnecter?')">Se deconnecter</asp:LinkButton>
                                 </li>
                                 
                                 </ul>

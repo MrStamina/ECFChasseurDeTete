@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModifInfos.aspx.cs" Inherits="WebApplicationChasseurDeTete.WebForm4" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h4 class="text-center" style="font-size: x-large">Votre compte entreprise</h4>
+    <h4 class="text-center" style="font-size: x-large">Modifier vos informations</h4>
         <hr />
         <asp:Panel ID="PanelCreation" CssClass="Panel" GroupingText="Informations générales" runat ="server">
         <p>
@@ -43,7 +43,7 @@
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelTel" runat="server" Text="Telephone"></asp:Label>
-            <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" MaxLength="20" TextMode="Number"></asp:TextBox>
+            <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" MaxLength="20" ></asp:TextBox>
             
         </p>
         <p>

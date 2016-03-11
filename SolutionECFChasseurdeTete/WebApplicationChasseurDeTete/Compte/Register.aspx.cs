@@ -16,13 +16,17 @@ namespace WebApplicationChasseurDeTete.Account
 {
     public partial class Register : Page
     {
+
+        //Afficher une message box
+
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             if (!Page.IsPostBack)
             {
-                //RangeValidator1.MinimumValue = DateTime.Today.AddYears(-18).ToShortDateString();
-                //RangeValidator1.MaximumValue = DateTime.Today.ToShortDateString();
+                DateTime minDate = new DateTime(DateTime.Now.Year - 18, DateTime.Now.Month, 1);
+                CompareValidator3.ValueToCompare = minDate.ToShortDateString();
                 try
                 {
                     //Bind  dropdown Pole géographique entreprise
@@ -44,21 +48,21 @@ namespace WebApplicationChasseurDeTete.Account
                     DropDownListPoleEmploi.DataValueField = "IdPole";
                     DropDownListPoleEmploi.DataBind();
                     // Bin drop Situation 
-                    DropDownListSituFami.Items.Insert(0, new ListItem("Selectionnez votre situation familiale","0"));
+                    DropDownListSituFami.Items.Insert(0, new ListItem("Selectionnez votre situation familiale", "0"));
                     DropDownListSituFami.DataSource = DaoSituFam.GetAllSituationFamiliales();
                     DropDownListSituFami.DataTextField = "LibelleSituF";
                     DropDownListSituFami.DataValueField = "IdSituF";
                     DropDownListSituFami.DataBind();
-                   
+
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    Response.Write("Impossible de se connecter" + ex);
+                    ClientScript.RegisterStartupScript(this.GetType(), "Failure", "<script type='text/javascript'>alert('Le compte n'a pas été enregistré');window.location='~/Accueil.aspx';</script>'");
                 }
             }
         }
 
-       
+
 
 
 
@@ -107,26 +111,26 @@ namespace WebApplicationChasseurDeTete.Account
 
                 LoginEntreprise log = new LoginEntreprise();
                 log.UserIdent = TextBoxIdentification.Text;
-                log.UserPwd = TextBoxConfirmation.Text;                
+                log.UserPwd = TextBoxConfirmation.Text;
 
                 try
                 {
                     ent.IdEntreprise = DaoEntreprise.AddEntreprise(ent);
                     if (DaoEntreprise.AddLoginEntreprise(log, ent.IdEntreprise) == true)
                     {
-                        Response.Write("Le compte a été crée");
+                        ClientScript.RegisterStartupScript(this.GetType(), "Success", "<script type='text/javascript'>alert('Le compte a bien été enregistré');window.location='Login.aspx';</script>'");
                     }
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    Response.Write("Le compte n'a pas été crée" + ex);
+                    ClientScript.RegisterStartupScript(this.GetType(), "Failure", "<script type='text/javascript'>alert('Le compte n'a pas été enregistré');window.location='Register.aspx';</script>'");
                 }
             }
-            Response.Redirect("Login.aspx");
-            
+           
+
         }
 
-       
+
 
         protected void ButtonEntreprise_Click(object sender, EventArgs e)
         {
@@ -147,11 +151,11 @@ namespace WebApplicationChasseurDeTete.Account
 
         protected void ButtonValiderCand_Click(object sender, EventArgs e)
         {
-            if(Page.IsValid)
+            if (Page.IsValid)
             {
                 Candidat cand = new Candidat();
                 cand.Nom = TextBoxNomCandidat.Text;
-                cand.Prenom = TextBoxPrenom.Text;               
+                cand.Prenom = TextBoxPrenom.Text;
                 cand.DateNaissance = Convert.ToDateTime(TextBoxDateDeNaissance.Text);
                 cand.Telephone = TextBoxTelephone.Text;
                 cand.AdresseMail = TextBoxAdresseMailCandidat.Text;
@@ -160,9 +164,9 @@ namespace WebApplicationChasseurDeTete.Account
                 else
                     cand.SituationProfess = false;
                 if (DropDownListMobilite.SelectedIndex == 1)
-                    cand.Mobilite = true;
-                else
                     cand.Mobilite = false;
+                else
+                    cand.Mobilite = true;
                 SituationFamiliale situF = new SituationFamiliale();
                 cand.SituationF = situF;
                 situF.IdSituF = Convert.ToSByte(DropDownListSituFami.SelectedIndex);
@@ -170,7 +174,7 @@ namespace WebApplicationChasseurDeTete.Account
                 cand.PoleRattachement = pole;
                 if (DropDownListPoleEmploi.SelectedIndex == 0)
                     cand.PoleRattachement = null;
-                else                
+                else
                     pole.IdPole = Convert.ToSByte(DropDownListPoleEmploi.SelectedIndex);
                 LoginCandidat log = new LoginCandidat();
                 log.UserIdent = TextBoxMailConnexionCand.Text;
@@ -179,15 +183,24 @@ namespace WebApplicationChasseurDeTete.Account
                 {
                     cand.IdCandidat = DaoCandidat.AddCandidat(cand);
                     if (DaoCandidat.AddLoginCandidat(log, cand.IdCandidat) == true)
-                        Response.Write("Le compte a été crée");
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "Success", "<script type='text/javascript'>alert('Le compte a bien été enregistré');window.location='Login.aspx';</script>'");
+                    }
+                         
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    Response.Write("Le compte n'a pas été crée" + ex);
+                    ClientScript.RegisterStartupScript(this.GetType(), "Failure", "<script type='text/javascript'>alert('Le compte n'a pas été enregistré');window.location='Register.aspx';</script>'");
                 }
 
             }
-            Response.Redirect("Login.aspx");
+          
+          
         }
+
+        
+
     }
+
+    
 }

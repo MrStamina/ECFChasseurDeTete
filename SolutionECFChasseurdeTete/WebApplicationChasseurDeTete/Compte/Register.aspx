@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="S'inscrire" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="WebApplicationChasseurDeTete.Account.Register" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+
+
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">    
     
 
@@ -52,7 +56,7 @@
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelTel" runat="server" Text="Telephone"></asp:Label>
-            <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" TextMode="Number" MaxLength="20"></asp:TextBox>
+            <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" MaxLength="20"></asp:TextBox>
             
         </p>
         <p>
@@ -83,14 +87,15 @@
              <p>
             <asp:Label CssClass="Label" ID="LabelConfirmation" runat="server" Text="Confirmer le mot de passe"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxConfirmation" TextMode="Password" runat="server"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorConfirmation" ForeColor="Red" runat="server" ControlToValidate="TextBoxConfirmation" Text="*" ErrorMessage="Veuillez renseigner à nouveau le mot de passe" ValidationGroup="ValidationEntreprise"></asp:RequiredFieldValidator> 
-                 <asp:CompareValidator  ID="CompareValidator1" runat="server" ErrorMessage="Le mot de passe doit être identique" ForeColor="Red" ControlToValidate="TextBoxConfirmation" ControlToCompare="TextBoxMdp" ValidationGroup="ValidationEntreprise"></asp:CompareValidator>             
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorConfirmation" ForeColor="Red" runat="server" ControlToValidate="TextBoxConfirmation" Text="*" ErrorMessage="Veuillez renseigner à nouveau le mot de passe" ValidationGroup="ValiderEntreprise"></asp:RequiredFieldValidator> 
+                 <asp:CompareValidator  ID="CompareValidator1" runat="server" ErrorMessage="Le mot de passe doit être identique" ForeColor="Red" ControlToValidate="TextBoxConfirmation" ControlToCompare="TextBoxMdp" ValidationGroup="ValiderEntreprise"></asp:CompareValidator>             
         </p>
         </asp:Panel>
             <div class ="Bouton">
          <asp:Button ID="ButtonValider" ValidationGroup="ValiderEntreprise" runat="server" OnClick="ButtonValider_Click" Text="Valider" CssClass="btn btn-primary btn-lg" />
                 <asp:Button ID="ButtonRetour" runat="server" Text="Retour" OnClick="ButtonRetour_Click" CssClass="btn btn-primary btn-lg"  CausesValidation="false"/>
-                        
+              
+               
            
   </div>
              <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"  ShowMessageBox="False" DisplayMode="BulletList" HeaderText="Récapitulatif des erreurs : " />
@@ -99,23 +104,24 @@
         <p>
         <asp:Label CssClass="Label" ID="LabelNomCandidat" runat="server" Text="Nom"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxNomCandidat" runat="server" MaxLength="30"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxNom" ErrorMessage="Veuillez indiquer votre nom" ForeColor="Red" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TextBoxNomCandidat" ErrorMessage="Veuillez indiquer votre nom" ForeColor="Red" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelPrenom" runat="server" Text="Prénom"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxPrenom" runat="server" MaxLength="20"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxAdresse" ForeColor="Red" ErrorMessage="Veuillez indiquer votre prénom" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TextBoxPrenom" ForeColor="Red" ErrorMessage="Veuillez indiquer votre prénom" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelDateDeNaissance" runat="server" Text="Date de naissance"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxDateDeNaissance" runat="server" MaxLength="30"></asp:TextBox>
              <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="TextBoxDateDeNaissance" ForeColor="Red" ErrorMessage="Veuillez indiquer votre date de naissance" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
-            <asp:CompareValidator ID="CompareValidator3" ControlToCompare="TextBoxDateDeNaissance" Type="Date" Operator="DataTypeCheck" runat="server" Text="*" ErrorMessage="Date au format JJ/MM/AAAA"></asp:CompareValidator>
-           <%-- <asp:RangeValidator ID="RangeValidator1" ControlToValidate="TextBoxDateDeNaissance" runat="server" ForeColor="Red" Text="*" ErrorMessage="Vous devez être majeur"></asp:RangeValidator>--%>
+            <asp:CompareValidator ID="CompareValidator3" ControlToValidate="TextBoxDateDeNaissance" Operator="LessThanEqual" Type="Date" runat="server" ForeColor="Red" ErrorMessage="Vous devez être majeur pour vous inscrire"></asp:CompareValidator>
+           
+            <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender1" TargetControlID="TextBoxDateDeNaissance" MaskType="Date" Mask="99/99/9999" runat="server" MessageValidatorTip="true" />
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelTelephone" runat="server" Text="Telephone"></asp:Label>
-            <asp:TextBox CssClass="TextBox" ID="TextBoxTelephone" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:TextBox CssClass="TextBox" ID="TextBoxTelephone"  runat="server" MaxLength="20"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxTelephone" ForeColor="Red" ErrorMessage="Veuillez indiquer un numéro de téléphone" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
         </p>
          <p>
@@ -137,8 +143,8 @@
             <asp:Label CssClass="Label" ID="LabelMobilite" runat="server" Text="Vous êtes mobile ?"></asp:Label>
              <asp:DropDownList CssClass="TextBox" ID="DropDownListMobilite" runat="server" AutoPostBack="False">
              
-                 <asp:ListItem Value="1">Oui</asp:ListItem>
-                 <asp:ListItem Value="0">Non</asp:ListItem>
+                 <asp:ListItem Value="0">Oui</asp:ListItem>
+                 <asp:ListItem Value="1">Non</asp:ListItem>
              </asp:DropDownList>
             
         </p>
@@ -146,7 +152,7 @@
             <asp:Label CssClass="Label" ID="LabelSituFami" runat="server" Text="Votre situation familiale"></asp:Label>
              <asp:DropDownList CssClass="TextBox" ID="DropDownListSituFami" runat="server" AutoPostBack="false" AppendDataBoundItems="true">                 
              </asp:DropDownList>
-             <asp:RequiredFieldValidator ID="RequiredFieldValidatorSituFam" runat="server" ControlToValidate="DropDownListSituFami" Display="Static" Text="*" InitialValue="0" ForeColor="Red" ErrorMessage="Veuillez indiquer votre situation familiale">
+             <asp:RequiredFieldValidator ID="RequiredFieldValidatorSituFam" runat="server" ControlToValidate="DropDownListSituFami" Display="Static" Text="*" InitialValue="0" ForeColor="Red" ErrorMessage="Veuillez indiquer votre situation familiale" ValidationGroup="ValidationCandidat">
 
              </asp:RequiredFieldValidator>
         </p>       
@@ -170,12 +176,12 @@
              <p>
             <asp:Label CssClass="Label" ID="Label14" runat="server" Text="Confirmer le mot de passe"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxConfirmCand" TextMode="Password" runat="server"></asp:TextBox>
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="Red" runat="server" ControlToValidate="TextBoxConfirmCand" Text="*" ErrorMessage="Veuillez renseigner à nouveau le mot de passe"></asp:RequiredFieldValidator> 
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="Red" runat="server" ControlToValidate="TextBoxConfirmCand" ValidationGroup="ValidationCandidat" Text="*" ErrorMessage="Veuillez renseigner à nouveau le mot de passe"></asp:RequiredFieldValidator> 
                  <asp:CompareValidator  ID="CompareValidator2" runat="server" ForeColor="Red" ErrorMessage="Le mot de passe doit être identique" ControlToValidate="TextBoxConfirmCand" ControlToCompare="TextBoxMdpCand" ValidationGroup="ValidationCandidat"></asp:CompareValidator>                            
         </p>
         </asp:Panel>
             <div class ="Bouton">
-         <asp:Button ID="ButtonValiderCand" runat="server" Onclick="ButtonValiderCand_Click" Text="Valider" CssClass="btn btn-primary btn-lg" ValidationGroup="ValidationCandidat" />
+         <asp:Button ID="ButtonValiderCand" runat="server" Onclick="ButtonValiderCand_Click" Text="Valider" CssClass="btn btn-primary btn-lg" ValidationGroup="ValidationCandidat"  />
                 <asp:Button ID="ButtonRetourCand" runat="server" Text="Retour" OnClick="ButtonRetour_Click" CssClass="btn btn-primary btn-lg"  CausesValidation="false"/>
                         
            

@@ -39,7 +39,7 @@ namespace WebApplicationChasseurDeTete
                 Session["LoginCand"] = cand.Nom + " " + cand.Prenom;
                 Session["IdCand"] = cand.IdCandidat;
                 Response.BufferOutput = true;
-                Response.Redirect("EspaceCandidat.aspx", false);
+                Response.Redirect("~/CompteCandidat/EspaceCandidat.aspx", false);
             }
             else if (DaoEntreprise.GetLoginEntreprisebyId(log, out recupId) == true)          
             {

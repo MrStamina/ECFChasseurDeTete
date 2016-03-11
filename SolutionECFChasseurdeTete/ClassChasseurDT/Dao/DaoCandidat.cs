@@ -251,7 +251,7 @@ namespace ClassChasseurDT.Dao
                     sqlCde.Parameters.Add(new SqlParameter("@userIdent", SqlDbType.VarChar, 50)).Value = log.UserIdent;
                     string hash = CryptLibrary.Cryptage.getMd5Hash(log.UserPwd);
                     sqlCde.Parameters.Add(new SqlParameter("@userPwd", SqlDbType.VarChar, 30)).Value = hash;
-                    sqlCde.Parameters.Add(new SqlParameter("@idEntreprise", SqlDbType.Int)).Value = idCand;
+                    sqlCde.Parameters.Add(new SqlParameter("@idCandidat", SqlDbType.Int)).Value = idCand;
                     try
                     {
 
@@ -262,7 +262,7 @@ namespace ClassChasseurDT.Dao
                     }
                     catch (SqlException se)
                     {
-                        throw new DaoExceptionFinAppli("Lecture Entreprise impossible \n" + se.Message, se);
+                        throw new DaoExceptionFinAppli("Lecture candidat impossible \n" + se.Message, se);
                     }
                 }
             }
@@ -270,6 +270,7 @@ namespace ClassChasseurDT.Dao
 
         public static bool GetLoginCandidatbyId(LoginCandidat log, out int idCand )
         {
+            
 
             using (SqlConnection sqlConnect = Connection.GetConnection())
             {
@@ -294,8 +295,18 @@ namespace ClassChasseurDT.Dao
 
                         }
                         sqlRdr.Close();
-                        idCand = id;
-                        return true;
+                        if (id != 0)
+                        {
+                            idCand = id;
+                            return true;
+                        }
+                        else
+                        {
+                            idCand = 0;
+                            return false;
+                        }
+                           
+                       
                     }
                     catch (SqlException ex)
                     {

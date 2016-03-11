@@ -81,6 +81,7 @@ namespace WebApplicationChasseurDeTete
                 {
                     Panel1.Visible = true;
                     LinkButtonEspaceEnt.Visible = false;
+                    Panel2.Visible = false;
 
                 }
                 else

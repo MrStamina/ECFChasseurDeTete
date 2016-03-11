@@ -33,9 +33,9 @@ namespace WebApplicationChasseurDeTete
                     DropDownListSecteur.DataValueField = "IdActivite";
                     DropDownListSecteur.DataBind();
                 }
-                catch (Exception ex)
+                catch 
                 {
-                    Response.Write("Impossible de se connecter" + ex);
+                    ClientScript.RegisterStartupScript(this.GetType(), "Failure", "<script type='text/javascript'>alert('Impossible de se connecter');window.location='EspaceEntreprise.aspx';</script>'");
                 }
                 int idEnt = (int)Session["IdEnt"];
                 Entreprise ent = new Entreprise();
@@ -133,19 +133,19 @@ namespace WebApplicationChasseurDeTete
                 {
                     if(DaoEntreprise.UpdEntreprise(ent) == true)
                     {
-                        Response.Write("La modification est effectuée");
+                        ClientScript.RegisterStartupScript(this.GetType(), "Success", "<script type='text/javascript'>alert('La modification est effectuée');window.location='EspaceEntreprise.aspx';</script>'");
                     }
                     
                        
                 }
-                catch(Exception ex)
+                catch
                 {
-                    Response.Write("La modification a echoué" + ex);
+                    ClientScript.RegisterStartupScript(this.GetType(), "Failure", "<script type='text/javascript'>alert('La modification a échoué');window.location='EspaceEntreprise.aspx';</script>'");
                 }
 
 
             }
-            Response.Redirect("EspaceEntreprise.aspx");
+           
         }
     }
 }

@@ -14,7 +14,7 @@
          Faites-vous accompagner par des consultants experts !
         </p>
         <p>
-            <a href="CompteCandidat/RegisterCandidat.aspx" class="btn btn-primary btn-lg">Créer un compte &raquo;</a>
+            <a href="Compte/Register.aspx" class="btn btn-primary btn-lg">Créer un compte &raquo;</a>
 
         </p>
     </div>
