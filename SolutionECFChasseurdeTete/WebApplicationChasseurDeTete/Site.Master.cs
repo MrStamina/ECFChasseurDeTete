@@ -102,7 +102,7 @@ namespace WebApplicationChasseurDeTete
 
         protected void LinkButtonEspaceCand_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Compte/EspaceCandidat.aspx");
+            Response.Redirect("~/CompteCandidat/EspaceCandidat.aspx");
         }
 
         protected void LinkButtonEspaceEnt_Click(object sender, EventArgs e)

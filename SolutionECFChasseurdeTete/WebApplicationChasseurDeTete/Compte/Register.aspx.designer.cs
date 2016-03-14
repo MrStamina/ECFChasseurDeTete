@@ -148,6 +148,15 @@ namespace WebApplicationChasseurDeTete.Account {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorCodePostal;
         
         /// <summary>
+        /// Contrôle MaskedEditExtender4.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender4;
+        
+        /// <summary>
         /// Contrôle LabelVille.
         /// </summary>
         /// <remarks>
@@ -220,6 +229,15 @@ namespace WebApplicationChasseurDeTete.Account {
         protected global::System.Web.UI.WebControls.TextBox TextBoxContact;
         
         /// <summary>
+        /// Contrôle RequiredFieldValidatorContact.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorContact;
+        
+        /// <summary>
         /// Contrôle LabelTel.
         /// </summary>
         /// <remarks>
@@ -238,6 +256,24 @@ namespace WebApplicationChasseurDeTete.Account {
         protected global::System.Web.UI.WebControls.TextBox TextBoxTel;
         
         /// <summary>
+        /// Contrôle RequiredFieldValidatorTel.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorTel;
+        
+        /// <summary>
+        /// Contrôle MaskedEditExtender3.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender3;
+        
+        /// <summary>
         /// Contrôle LabelMail.
         /// </summary>
         /// <remarks>
@@ -254,6 +290,15 @@ namespace WebApplicationChasseurDeTete.Account {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxMail;
+        
+        /// <summary>
+        /// Contrôle RequiredFieldValidatorMail.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorMail;
         
         /// <summary>
         /// Contrôle LabelSecteur.
@@ -290,6 +335,15 @@ namespace WebApplicationChasseurDeTete.Account {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DropDownListPole;
+        
+        /// <summary>
+        /// Contrôle RequiredFieldValidatorPole.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPole;
         
         /// <summary>
         /// Contrôle PanelIdentification.
@@ -551,6 +605,15 @@ namespace WebApplicationChasseurDeTete.Account {
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
+        /// Contrôle MaskedEditExtender2.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender2;
         
         /// <summary>
         /// Contrôle LabelAdresseMailCandidat.

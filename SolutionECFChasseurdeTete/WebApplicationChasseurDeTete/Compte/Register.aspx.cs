@@ -198,8 +198,31 @@ namespace WebApplicationChasseurDeTete.Account
           
         }
 
-        
+        protected void DropDownListClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(DropDownListClient.SelectedIndex == 1)
+            {
+                RequiredFieldValidatorContact.Enabled = true;
+                RequiredFieldValidatorMail.Enabled = true;
+                RequiredFieldValidatorPole.Enabled = true;
+                RequiredFieldValidatorTel.Enabled = true;
+            }
+            else
+            {
+                RequiredFieldValidatorContact.Enabled = false;
+                RequiredFieldValidatorMail.Enabled = false;
+                RequiredFieldValidatorPole.Enabled = false;
+                RequiredFieldValidatorTel.Enabled = false;
+            }
+        }
 
+        protected void DropDownListPoleEmploi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(DropDownListPoleEmploi.SelectedIndex == 0)
+            {
+                DropDownListMobilite.SelectedIndex = 0;
+            }
+        }
     }
 
     

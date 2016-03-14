@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplicationChasseurDeTete.SiteMaster" %>
 
+<%--Voir Project_Readme.html pour les informations importantes--%>
+
 <!DOCTYPE html>
 
 <html lang="fr">

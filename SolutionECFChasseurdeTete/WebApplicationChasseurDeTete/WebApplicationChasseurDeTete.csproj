@@ -208,6 +208,8 @@
     <Content Include="CompteCandidat\EspaceCandidat.aspx" />
     <Content Include="CompteCandidat\SuiviExperience.aspx" />
     <Content Include="CompteCandidat\ModifierCandidat.aspx" />
+    <Content Include="Compte\ModifIdentifiantsEntreprise.aspx" />
+    <Content Include="CompteCandidat\ModifIdentifiantsCand.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\en_construction.jpg" />
     <Content Include="Images\We-want-you-image.png" />
@@ -375,6 +377,20 @@
     </Compile>
     <Compile Include="CompteCandidat\ModifierCandidat.aspx.designer.cs">
       <DependentUpon>ModifierCandidat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Compte\ModifIdentifiantsEntreprise.aspx.cs">
+      <DependentUpon>ModifIdentifiantsEntreprise.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Compte\ModifIdentifiantsEntreprise.aspx.designer.cs">
+      <DependentUpon>ModifIdentifiantsEntreprise.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompteCandidat\ModifIdentifiantsCand.aspx.cs">
+      <DependentUpon>ModifIdentifiantsCand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompteCandidat\ModifIdentifiantsCand.aspx.designer.cs">
+      <DependentUpon>ModifIdentifiantsCand.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -268,9 +268,9 @@ namespace ClassChasseurDT.Dao
             }
         }
 
-        public static bool GetLoginCandidatbyId(LoginCandidat log, out int idCand )
+        public static bool GetLoginCandidatbyId(LoginCandidat log, out int idCand)
         {
-            
+
 
             using (SqlConnection sqlConnect = Connection.GetConnection())
             {
@@ -305,8 +305,8 @@ namespace ClassChasseurDT.Dao
                             idCand = 0;
                             return false;
                         }
-                           
-                       
+
+
                     }
                     catch (SqlException ex)
                     {
@@ -316,5 +316,35 @@ namespace ClassChasseurDT.Dao
             }
         }
 
+        public static bool UpdLoginCandidat(LoginCandidat log)
+        {
+            using (SqlConnection sqlConnect = Connection.GetConnection())
+            {
+                using (SqlCommand sqlCde = new SqlCommand())
+                {
+                    sqlCde.Connection = sqlConnect;
+                    string strsql = "UpdLoginCandidat";
+                    sqlCde.CommandText = strsql;
+                    sqlCde.CommandType = CommandType.StoredProcedure;
+
+                    sqlCde.Parameters.Add(new SqlParameter("@userIdent", SqlDbType.VarChar, 50)).Value = log.UserIdent;
+                    string hash = CryptLibrary.Cryptage.getMd5Hash(log.UserPwd);
+                    sqlCde.Parameters.Add(new SqlParameter("@userPwd", SqlDbType.VarChar, 30)).Value = hash;
+                    sqlCde.Parameters.Add(new SqlParameter("@idCandidat", SqlDbType.Int)).Value = log.IdCandidat;
+                    try
+                    {
+
+                        int n = sqlCde.ExecuteNonQuery();
+                        if (n != 1)
+                            throw new DaoExceptionAfficheMessage("L'opération n'a pas été réalisée");
+                        return true;
+                    }
+                    catch (SqlException se)
+                    {
+                        throw new DaoExceptionFinAppli("Modification login impossible \n" + se.Message, se);
+                    }
+                }
+            }
+        }
     }
 }

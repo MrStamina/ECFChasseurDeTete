@@ -21,7 +21,7 @@
    </li>
     <li><a href="#">Gestion du compte</a>
       <ul>
-         <li><a href="#">Changer mes identifiants</a></li>
+         <li><a href="ModifIdentifiantsEntreprise.aspx">Changer mes identifiants</a></li>
          
          <li><a href="ModifInfos.aspx">Modifier les informations</a></li>
          <%--<li><a href="#">Lien sous menu 2</a></li>--%>
@@ -37,8 +37,9 @@
          <li><a href="#">Proposer une mission</a></li>
       </ul>
    </li>
-    <li><a href="~/Accueil.aspx">Retour accueil</a>
+    <li><asp:HyperLink NavigateUrl="~/Accueil.aspx" ID="HyperLink2" runat="server">Retour accueil</asp:HyperLink>
         </li>
+    
 </ul>
     </div>
      

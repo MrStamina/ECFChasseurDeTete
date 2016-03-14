@@ -4,15 +4,31 @@
     <div class="Affichage">
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="IdExperience" DataSourceID="SqlDataSource1" ForeColor="Black">
             <Columns>
+                <asp:CommandField InsertVisible="False" ShowEditButton="True" />
                 <asp:BoundField DataField="IdExperience" HeaderText="IdExperience" InsertVisible="False" ReadOnly="True" SortExpression="IdExperience" Visible="False" />
                 <asp:BoundField DataField="IdQualification" HeaderText="IdQualification" SortExpression="IdQualification" Visible="False" />
                 <asp:BoundField DataField="IdCandidat" HeaderText="IdCandidat" SortExpression="IdCandidat" Visible="False" />
                 <asp:BoundField DataField="IdEntreprise" HeaderText="IdEntreprise" SortExpression="IdEntreprise" Visible="False" />
-                <asp:BoundField DataField="DateDebut" DataFormatString="{0:d}" HeaderText="Date de début" SortExpression="DateDebut" />
-                <asp:BoundField DataField="DateFin" DataFormatString="{0:d}" HeaderText="Date de fin" SortExpression="DateFin" />
-                <asp:BoundField DataField="Commentaire" HeaderText="Commentaire" SortExpression="Commentaire" />
+                <asp:TemplateField HeaderText="Date de début" SortExpression="DateDebut">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DateDebut", "{0:d}") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("DateDebut", "{0:d}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Date de Fin" SortExpression="DateFin">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("DateFin", "{0:d}") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("DateFin", "{0:d}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:BoundField DataField="RaisonSociale" HeaderText="Nom de l'entreprise" SortExpression="RaisonSociale" />
                 <asp:BoundField DataField="LibelleQualification" HeaderText="Qualification" SortExpression="LibelleQualification" />
+                <asp:BoundField DataField="Commentaire" HeaderText="Commentaire" SortExpression="Commentaire" />
+                <asp:CommandField ShowDeleteButton="True" />
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -24,10 +40,35 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ChasseurDeTete %>" SelectCommand="GetAllExperiencesByCand" SelectCommandType="StoredProcedure">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ChasseurDeTete %>" SelectCommand="GetAllExperiencesByCand" SelectCommandType="StoredProcedure" DeleteCommand="DelExperience" DeleteCommandType="StoredProcedure" InsertCommand="AddExperience" InsertCommandType="StoredProcedure" UpdateCommand="UpdExperience" UpdateCommandType="StoredProcedure">
+            <DeleteParameters>
+                <asp:Parameter Name="idExperience" Type="Int32" />
+            </DeleteParameters>
+            <InsertParameters>
+                <asp:Parameter Name="idQualification" Type="Int32" />
+                <asp:Parameter Name="idCandidat" Type="Int32" />
+                <asp:Parameter Name="idEntreprise" Type="Int32" />
+                <asp:Parameter DbType="Date" Name="DateDebut" />
+                <asp:Parameter DbType="Date" Name="DateFin" />
+                <asp:Parameter Name="Commentaire" Type="String" />
+                <asp:Parameter Direction="InputOutput" Name="idExperience" Type="Int32" />
+            </InsertParameters>
             <SelectParameters>
                 <asp:SessionParameter Name="idCandidat" SessionField="IdCand" Type="Int32" />
             </SelectParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="idExperience" Type="Int32" />
+                <asp:Parameter Name="idQualification" Type="Int32" />
+                <asp:Parameter Name="idCandidat" Type="Int32" />
+                <asp:Parameter Name="idEntreprise" Type="Int32" />
+                <asp:Parameter DbType="Date" Name="DateDebut" />
+                <asp:Parameter DbType="Date" Name="DateFin" />
+                <asp:Parameter Name="Commentaire" Type="String" />
+            </UpdateParameters>
         </asp:SqlDataSource>
+        <div class="Bouton">
+            <asp:Button ID="ButtonCancel" PostBackUrl="~/CompteCandidat/EspaceCandidat.aspx" runat="server" Text="Retour" CssClass="btn btn-primary btn-lg"  CausesValidation="false"/>
+        </div>
+
         </div>
 </asp:Content>

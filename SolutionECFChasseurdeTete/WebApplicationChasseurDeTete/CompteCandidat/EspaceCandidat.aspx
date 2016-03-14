@@ -16,15 +16,15 @@
    </li>
     <li><a href="#">Gestion du compte</a>
       <ul>
-         <li><a href="#">Changer mes identifiants</a></li>    
+         <li><a href="ModifIdentifiantsCand">Changer mes identifiants</a></li>    
          <li><a href="ModifierCandidat.aspx">Modifier mes informations</a></li>     
-         <li><a href="SuivExperience.aspx">Mes Expèriences</a></li>
+         <li><a href="SuiviExperience.aspx">Mes Expériences</a></li>
          <li><a href="#">Mes Diplômes</a></li>
          <li><a href="#">Les poste recherchés</a></li>
          
       </ul>
    </li>
-    <li><a href="~/Accueil.aspx">Retour accueil</a>
+    <li><asp:HyperLink NavigateUrl="~/Accueil.aspx" ID="HyperLink1" runat="server">Retour accueil</asp:HyperLink>
         </li>
 </ul>
     </div>

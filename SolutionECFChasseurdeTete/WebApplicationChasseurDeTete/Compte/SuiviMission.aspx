@@ -33,6 +33,9 @@
                 <asp:SessionParameter Name="identreprise" SessionField="IdEnt" Type="Int32" />
             </SelectParameters>
         </asp:SqlDataSource>
+        <div class="Bouton">
+            <asp:Button ID="ButtonCancel" PostBackUrl="~/Compte/EspaceEntreprise.aspx" runat="server" Text="Retour" CssClass="btn btn-primary btn-lg"  CausesValidation="false"/>
+        </div>
 
     </div>
 </asp:Content>

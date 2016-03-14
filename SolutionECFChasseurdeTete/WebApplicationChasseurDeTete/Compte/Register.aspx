@@ -34,6 +34,7 @@
             <asp:Label CssClass="Label" ID="LabelCodePostal" runat="server" Text="Code Postal"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxCodePostal" runat="server" MaxLength="5"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCodePostal" runat="server" ControlToValidate="TextBoxCodePostal" ForeColor="Red" ErrorMessage="Veuillez indiquer le code postal" Text="*" ValidationGroup="ValiderEntreprise"></asp:RequiredFieldValidator>
+            <ajaxToolkit:MaskedEditExtender ID="MaskedEditExtender4" MaskType="Number" Mask="99999" TargetControlID="TextBoxCodePostal" runat="server" />
         </p>
          <p>
             <asp:Label CssClass="Label" ID="LabelVille" runat="server" Text="Ville"></asp:Label>
@@ -42,7 +43,7 @@
         </p>
          <p>
             <asp:Label CssClass="Label" ID="LabelClient" runat="server" Text="Vous êtes client ?"></asp:Label>
-             <asp:DropDownList CssClass="TextBox" ID="DropDownListClient" runat="server" AutoPostBack="True">
+             <asp:DropDownList CssClass="TextBox" ID="DropDownListClient" OnSelectedIndexChanged="DropDownListClient_SelectedIndexChanged" runat="server" AutoPostBack="True">
                  <asp:ListItem>Sélectionnez une réponse</asp:ListItem>
                  <asp:ListItem Value="1">Oui</asp:ListItem>
                  <asp:ListItem Value="2">Non</asp:ListItem>
@@ -52,16 +53,20 @@
          <p>
             <asp:Label CssClass="Label" ID="LabelContact" runat="server" Text="Contact"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxContact" runat="server" MaxLength="50"></asp:TextBox>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidatorContact" ValidationGroup="ValiderEntreprise" runat="server"  Enabled="false" Text="*" ErrorMessage="Si vous êtes déja cliente veuillez entrer le nom du contact" ForeColor="Red" ControlToValidate="TextBoxContact"></asp:RequiredFieldValidator>
             
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelTel" runat="server" Text="Telephone"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" MaxLength="20"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorTel" runat="server" Text="*" ValidationGroup="ValiderEntreprise" Enabled="false" ErrorMessage="Si vous êtes déja client veuillez renseigner votre téléphone" ForeColor="Red" ControlToValidate="TextBoxTel"></asp:RequiredFieldValidator>
+             <ajaxToolkit:MaskedEditExtender TargetControlID="TextBoxTel" MessageValidatorTip="true" MaskType="Number" Mask="99-99-99-99-99" ID="MaskedEditExtender3" runat="server" />
             
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelMail" runat="server" Text="Adresse mail"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxMail" TextMode="Email" runat="server" MaxLength="30"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorMail" Enabled="false" ValidationGroup="ValiderEntreprise" Text="*" runat="server" ErrorMessage="Si vous êtes déja client veuillez indiquer une adresse mail" ForeColor="Red" ControlToValidate="TextBoxMail"></asp:RequiredFieldValidator>
            
         </p>
         <p>
@@ -71,7 +76,8 @@
         </p>
         <p>
             <asp:Label CssClass="Label" ID="LabelPole" runat="server" Text="Votre secteur géographique"></asp:Label>
-            <asp:DropDownList  CssClass="TextBox" ID="DropDownListPole" runat="server" AppendDataBoundItems="True" AutoPostBack="True"></asp:DropDownList>
+            <asp:DropDownList  CssClass="TextBox" ID="DropDownListPole" runat="server" AppendDataBoundItems="True" AutoPostBack="False"></asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPole" runat="server" ErrorMessage="Si vous êtes client veuillez choisir votre secteur géographique" ValidationGroup="ValiderEntreprise" Text="*" Enabled="false" ForeColor="Red" InitialValue="0" Display="Static" ControlToValidate="DropDownListPole"></asp:RequiredFieldValidator>
         </p>
         <asp:Panel   ID="PanelIdentification" runat="server" GroupingText="Informations de connexion">
             <p>
@@ -98,7 +104,7 @@
                
            
   </div>
-             <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red"  ShowMessageBox="False" DisplayMode="BulletList" HeaderText="Récapitulatif des erreurs : " />
+             <asp:ValidationSummary ID="ValidationSummary1" runat="server" ValidationGroup="ValiderEntreprise" ForeColor="Red"  ShowMessageBox="False" DisplayMode="BulletList" HeaderText="Récapitulatif des erreurs : " />
     </asp:Panel>
     <asp:Panel ID="PanelCreationCandidat" CssClass="Panel" GroupingText="Informations générales" runat ="server" Visible="False">
         <p>
@@ -123,6 +129,7 @@
             <asp:Label CssClass="Label" ID="LabelTelephone" runat="server" Text="Telephone"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxTelephone"  runat="server" MaxLength="20"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxTelephone" ForeColor="Red" ErrorMessage="Veuillez indiquer un numéro de téléphone" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
+            <ajaxToolkit:MaskedEditExtender TargetControlID="TextBoxTelephone" MessageValidatorTip="true" MaskType="Number" Mask="99-99-99-99-99" ID="MaskedEditExtender2" runat="server" />
         </p>
          <p>
           
@@ -159,7 +166,7 @@
                     
         <p>
             <asp:Label CssClass="Label" ID="LabelPoleEmploi" runat="server" Text="Votre secteur géographique"></asp:Label>
-            <asp:DropDownList  CssClass="TextBox" ID="DropDownListPoleEmploi" runat="server" AppendDataBoundItems="True" AutoPostBack="False"></asp:DropDownList>
+            <asp:DropDownList  CssClass="TextBox" OnSelectedIndexChanged="DropDownListPoleEmploi_SelectedIndexChanged" ID="DropDownListPoleEmploi" runat="server" AppendDataBoundItems="True" AutoPostBack="False"></asp:DropDownList>
            
         </p>
         <asp:Panel   ID="Panel2" runat="server" GroupingText="Informations de connexion">
@@ -186,7 +193,7 @@
                         
            
   </div>
-             <asp:ValidationSummary ID="ValidationSummary2" runat="server" ForeColor="Red"  ShowMessageBox="False" DisplayMode="BulletList" HeaderText="Récapitulatif des erreurs : " />
+             <asp:ValidationSummary ID="ValidationSummary2" ValidationGroup="ValidationCandidat" runat="server" ForeColor="Red"  ShowMessageBox="False" DisplayMode="BulletList" HeaderText="Récapitulatif des erreurs : " />
     </asp:Panel>
 
   

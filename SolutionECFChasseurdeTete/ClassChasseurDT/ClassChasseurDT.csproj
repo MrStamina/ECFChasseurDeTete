@@ -84,6 +84,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Procédures stockées\GetAllMissionsbyEnt.sql" />
+    <Content Include="Procédures stockées\UpdLoginCandidat.sql" />
+    <Content Include="Procédures stockées\UpdLoginEntreprise.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
