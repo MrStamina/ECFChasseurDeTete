@@ -72,6 +72,7 @@
         <p>
             <asp:Label CssClass="Label" ID="LabelSecteur" runat="server" Text="Votre secteur d'activité"></asp:Label>
             <asp:DropDownList  CssClass="TextBox" ID="DropDownListSecteur" runat="server" AppendDataBoundItems="True" AutoPostBack="True"></asp:DropDownList>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage=" Veuillez selectionner un secteur d'activité" Text="*" ValidationGroup="ValiderEntreprise" InitialValue="0" Display="Static" ControlToValidate="DropDownListSecteur" ForeColor="Red"></asp:RequiredFieldValidator>
 
         </p>
         <p>
@@ -166,7 +167,7 @@
                     
         <p>
             <asp:Label CssClass="Label" ID="LabelPoleEmploi" runat="server" Text="Votre secteur géographique"></asp:Label>
-            <asp:DropDownList  CssClass="TextBox" OnSelectedIndexChanged="DropDownListPoleEmploi_SelectedIndexChanged" ID="DropDownListPoleEmploi" runat="server" AppendDataBoundItems="True" AutoPostBack="False"></asp:DropDownList>
+            <asp:DropDownList  CssClass="TextBox" OnSelectedIndexChanged="DropDownListPoleEmploi_SelectedIndexChanged" ID="DropDownListPoleEmploi" runat="server" AppendDataBoundItems="True" AutoPostBack="True"></asp:DropDownList>
            
         </p>
         <asp:Panel   ID="Panel2" runat="server" GroupingText="Informations de connexion">
@@ -184,7 +185,7 @@
             <asp:Label CssClass="Label" ID="Label14" runat="server" Text="Confirmer le mot de passe"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxConfirmCand" TextMode="Password" runat="server"></asp:TextBox>
                  <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ForeColor="Red" runat="server" ControlToValidate="TextBoxConfirmCand" ValidationGroup="ValidationCandidat" Text="*" ErrorMessage="Veuillez renseigner à nouveau le mot de passe"></asp:RequiredFieldValidator> 
-                 <asp:CompareValidator  ID="CompareValidator2" runat="server" ForeColor="Red" ErrorMessage="Le mot de passe doit être identique" ControlToValidate="TextBoxConfirmCand" ControlToCompare="TextBoxMdpCand" ValidationGroup="ValidationCandidat"></asp:CompareValidator>                            
+                 <asp:CompareValidator  ID="CompareValidator2" runat="server" ForeColor="Red" ErrorMessage="Le mot de passe doit être identique" Text="*" ControlToValidate="TextBoxConfirmCand" ControlToCompare="TextBoxMdpCand" ValidationGroup="ValidationCandidat"></asp:CompareValidator>                            
         </p>
         </asp:Panel>
             <div class ="Bouton">

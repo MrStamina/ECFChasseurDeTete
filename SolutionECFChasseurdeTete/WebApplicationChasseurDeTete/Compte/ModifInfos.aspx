@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ModifInfos.aspx.cs" Inherits="WebApplicationChasseurDeTete.WebForm4" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h4 class="text-center" style="font-size: x-large">Modifier vos informations</h4>
         <hr />
@@ -44,6 +45,7 @@
         <p>
             <asp:Label CssClass="Label" ID="LabelTel" runat="server" Text="Telephone"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxTel" runat="server" MaxLength="20" ></asp:TextBox>
+            <ajaxToolkit:MaskedEditExtender TargetControlID="TextBoxTel" MessageValidatorTip="true" MaskType="Number" Mask="99-99-99-99-99" ID="MaskedEditExtender3" runat="server" />
             
         </p>
         <p>

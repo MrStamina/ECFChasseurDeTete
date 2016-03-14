@@ -28,6 +28,7 @@
             <asp:Label CssClass="Label" ID="LabelTelephone" runat="server" Text="Telephone"></asp:Label>
             <asp:TextBox CssClass="TextBox" ID="TextBoxTelephone"  runat="server" MaxLength="20"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TextBoxTelephone" ForeColor="Red" ErrorMessage="Veuillez indiquer un numéro de téléphone" Text="*" ValidationGroup="ValidationCandidat"></asp:RequiredFieldValidator>
+             <ajaxToolkit:MaskedEditExtender TargetControlID="TextBoxTelephone" MessageValidatorTip="true" MaskType="Number" Mask="99-99-99-99-99" ID="MaskedEditExtender3" runat="server" />
         </p>
          <p>
           

@@ -17,7 +17,18 @@ namespace WebApplicationChasseurDeTete
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!Page.IsPostBack)
+            {
+                if (Session["Login"] != null)
+                {
+                    Response.Redirect("~/Compte/EspaceEntreprise.aspx");
+                }
+                else if (Session["LoginCand"] != null)
+                {
+                    Response.Redirect("~/CompteCandidat/EspaceCandidat.aspx");
+                }
+               
+            }
         }
 
         protected void ButtonConnect_Click(object sender, EventArgs e)

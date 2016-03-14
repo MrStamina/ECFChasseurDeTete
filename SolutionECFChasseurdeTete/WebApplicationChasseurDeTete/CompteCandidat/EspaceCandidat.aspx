@@ -22,11 +22,7 @@
          <li><a href="#">Mes Diplômes</a></li>
          <li><a href="#">Les poste recherchés</a></li>
          
-      </ul>
-   </li>
-    <li><asp:HyperLink NavigateUrl="~/Accueil.aspx" ID="HyperLink1" runat="server">Retour accueil</asp:HyperLink>
-        </li>
-</ul>
+    
     </div>
      
  </div>

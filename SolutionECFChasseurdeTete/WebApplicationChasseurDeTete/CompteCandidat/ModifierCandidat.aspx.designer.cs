@@ -148,6 +148,15 @@ namespace WebApplicationChasseurDeTete {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
+        /// Contrôle MaskedEditExtender3.
+        /// </summary>
+        /// <remarks>
+        /// Champ généré automatiquement.
+        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+        /// </remarks>
+        protected global::AjaxControlToolkit.MaskedEditExtender MaskedEditExtender3;
+        
+        /// <summary>
         /// Contrôle LabelAdresseMailCandidat.
         /// </summary>
         /// <remarks>

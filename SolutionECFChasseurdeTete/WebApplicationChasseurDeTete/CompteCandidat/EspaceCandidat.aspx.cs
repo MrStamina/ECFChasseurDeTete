@@ -13,5 +13,11 @@ namespace WebApplicationChasseurDeTete
         {
             LabelBienvenu.Text = (string)Session["LoginCand"];
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/Accueil.aspx");
+        }
     }
 }

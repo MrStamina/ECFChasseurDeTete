@@ -173,7 +173,10 @@ namespace WebApplicationChasseurDeTete.Account
                 PoleEmbauche pole = new PoleEmbauche();
                 cand.PoleRattachement = pole;
                 if (DropDownListPoleEmploi.SelectedIndex == 0)
+                {
                     cand.PoleRattachement = null;
+                    cand.Mobilite = true;
+                }
                 else
                     pole.IdPole = Convert.ToSByte(DropDownListPoleEmploi.SelectedIndex);
                 LoginCandidat log = new LoginCandidat();

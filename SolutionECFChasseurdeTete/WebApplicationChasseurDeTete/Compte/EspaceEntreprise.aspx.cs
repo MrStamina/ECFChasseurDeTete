@@ -15,6 +15,10 @@ namespace WebApplicationChasseurDeTete
             LabelBienvenu.Text = (string)Session["Login"];
         }
 
-        
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/Accueil.aspx");
+        }
     }
 }

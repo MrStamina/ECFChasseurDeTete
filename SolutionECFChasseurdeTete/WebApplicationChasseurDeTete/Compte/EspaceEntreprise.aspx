@@ -35,10 +35,7 @@
          <li><a href="#">Consulter les Cv</a></li>
          <li><a href="#">Contacter mon consultant</a></li>
          <li><a href="#">Proposer une mission</a></li>
-      </ul>
-   </li>
-    <li><asp:HyperLink NavigateUrl="~/Accueil.aspx" ID="HyperLink2" runat="server">Retour accueil</asp:HyperLink>
-        </li>
+   
     
 </ul>
     </div>
